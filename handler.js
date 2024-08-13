@@ -1,10 +1,12 @@
 const { GraphQLHandler } = require("graphql-mocks");
 
+const cities = new Map();
+
 const handler = new GraphQLHandler({
   middlewares: [],
   resolverMap: {
     Query: {
-      helloWorld() {
+      helloWorld(parent) {
         return `hello`;
       },
     },
@@ -18,6 +20,23 @@ const handler = new GraphQLHandler({
         type Query {
           helloWorld: String
           helloMars: String
+          helloNewYork: City
+          cities: [String]
+        }
+
+        type City {
+          name: String
+          population: Int
+          area: Int
+          density: Int
+          country: Country
+        }
+
+        type Country {
+          name: String
+          population: Int
+          area: Int
+          density: Int
         }
       `,
   },
