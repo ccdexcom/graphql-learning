@@ -12,6 +12,20 @@ const handler = new GraphQLHandler({
     },
   },
   dependencies: {
+    // Scalar types:
+    // * Int
+    // * Float
+    // * String
+    // * Boolean
+    // * ID
+
+    // Example of defining a type:
+    // type NameOfType {
+    //   fieldOnType: Type
+    // }
+
+    // Full example schema:
+    // https://github.com/marmelab/GraphQL-example/blob/master/schema.graphql
     graphqlSchema: `
         schema {
           query: Query
